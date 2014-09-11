@@ -9,10 +9,12 @@ call vundle#begin()
   " let Vundle manage Vundle, required
   Plugin 'gmarik/Vundle.vim'
   Plugin 'scrooloose/nerdtree'
+  Plugin 'bling/vim-airline'
+  Plugin 'altercation/vim-colors-solarized'
   " The following are examples of different formats supported.
   " Keep Plugin commands between vundle#begin/end.
   " plugin on GitHub repo
-"  Plugin 'tpope/vim-fugitive'
+  Plugin 'tpope/vim-fugitive'
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
   filetype plugin indent on    " required
@@ -34,10 +36,7 @@ set title
 set expandtab
 set cursorline
    
-set ruler
-set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
-set showcmd
-set showmode
+"set showcmd
 set number
 set ignorecase
 set smartcase
@@ -45,13 +44,14 @@ set wildmenu
 set nowrap
 set laststatus=2
 set background=dark
-"set t_Co=16
+set t_Co=16
 colorscheme solarized
-let g:solarized_termcolors=256
+let g:airline_theme='solarized'
+"let g:solarized_termcolors=256
 " color overlong lines
 highlight ColorColumn ctermbg=black ctermfg=darkred guibg=red
 execute "set colorcolumn=" . join(range(79, 256), ',')
-
+let NERDTreeChDirMode=2
 " Highlight trailing whitespace
 autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
 autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
