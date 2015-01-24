@@ -18,8 +18,7 @@ alias ll="ls -AlhF --group-directories-first"
 alias la="ls -A --group-directories-first"
 alias lc="ls -CF --group-directories-first"
 alias lrn="cd /home/ianlittke/workspace/Learning"
-alias school="cd /home/ianlittke/workspace/School/2014\ Fall/CS131/"
-
+alias school="cd /home/ianlittke/workspace/School/2015winter/"
 
 # search
 alias where="which"
@@ -67,6 +66,6 @@ print_before_the_prompt () {
 PROMPT_COMMAND=print_before_the_prompt  
 PS1='$(__git_ps1 "(%s)")->'  
 
-
+#alias 
 
 

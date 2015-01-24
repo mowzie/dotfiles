@@ -11,6 +11,10 @@ call vundle#begin()
   Plugin 'scrooloose/nerdtree'
   Plugin 'bling/vim-airline'
   Plugin 'altercation/vim-colors-solarized'
+  Plugin 'sudar/vim-arduino-syntax'
+  Plugin 'lervag/vim-latex'
+  Plugin 'vim-pandoc/vim-pandoc-syntax'   
+  Plugin 'vim-pandoc/vim-pandoc'
   " The following are examples of different formats supported.
   " Keep Plugin commands between vundle#begin/end.
   " plugin on GitHub repo
@@ -26,16 +30,18 @@ call vundle#begin()
   set nocompatible
 set cindent
 set ttyfast
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set nobackup
 set writebackup
 set incsearch
 set title
 set expandtab
 set cursorline
-   
+
+let g:tex_flavor='latex'
+
 "set showcmd
 set number
 set ignorecase
@@ -50,13 +56,28 @@ let g:airline_theme='solarized'
 "let g:solarized_termcolors=256
 " color overlong lines
 highlight ColorColumn ctermbg=black ctermfg=darkred guibg=red
-execute "set colorcolumn=" . join(range(79, 256), ',')
+execute "set colorcolumn=" . join(range(80, 256), ',')
 let NERDTreeChDirMode=2
 " Highlight trailing whitespace
 autocmd InsertEnter * syn clear EOLWS | syn match EOLWS excludenl /\s\+\%#\@!$/
 autocmd InsertLeave * syn clear EOLWS | syn match EOLWS excludenl /\s\+$/
 highlight EOLWS ctermbg=red guibg=red
 
-autocmd bufnewfile *.c so /home/ianlittke/c_header.txt
+au BufNewFile,BufRead *.cpp,*.c,*.h,*.java syn region myCComment start="/\*" end="\*/" fold keepend transparent
 
 set makeprg=gcc\ -g\ -Wall\ %\ &&\ ./a.out
+
+function s:MDSettings()
+  inoremap <buffer> <Leader>n \note[item]{}<Esc>i
+  noremap <buffer> <Leader>b :! pandoc -t beamer % -o %<.pdf<CR><CR>
+  noremap <buffer> <Leader>l :! pandoc -t latex % -o %<.pdf<CR>
+  noremap <buffer> <Leader>v :! evince %<.pdf 2>&1 >/dev/null &<CR><CR>
+
+  syntax region Statement oneline matchgroup=Delimiter start="$" end="$"
+  syntax region Statement matchgroup=Delimiter start="\\begin{.*}" end="\\end{.*}" contains=Statement
+  syntax region Statement matchgroup=Delimiter start="{" end="}" contains=Statement
+endfunction
+
+au BufRead,BufNewFile *.ino setfiletype arduino
+autocmd BufRead,BufNewFile *md setfiletype markdown
+autocmd FileType markdown :call <SID>MDSettings()
