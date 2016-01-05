@@ -2,6 +2,7 @@
 # ~/.rhowaldt_bashrc
 # personal bashrc aliasses etc file
 # ----------------
+source ~/.git-prompt.sh
 
 # Make it shorter
 alias inst="sudo apt-get install -y"
@@ -18,7 +19,7 @@ alias ll="ls -AlhF --group-directories-first"
 alias la="ls -A --group-directories-first"
 alias lc="ls -CF --group-directories-first"
 alias lrn="cd /home/ianlittke/workspace/Learning"
-alias school="cd /home/ianlittke/workspace/School/2015winter/"
+alias school="cd /home/ianlittke/workspace/School/2016winter/"
 
 # search
 alias where="which"
@@ -54,16 +55,11 @@ cd() {
   fi
 }
 
-if [ -f /etc/bash_completion ]; then
-   . /etc/bash_completion
-fi
-
-
 print_before_the_prompt () {  
     printf "\n $txtred%s: $bldgrn%s $txtpur%s\n$txtrst" "$USER" "$PWD"  
-}  
+}
 
-PROMPT_COMMAND=print_before_the_prompt  
+PROMPT_COMMAND=print_before_the_prompt
 PS1='$(__git_ps1 "(%s)")->'  
 
 #alias 
