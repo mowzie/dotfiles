@@ -59,6 +59,8 @@ print_before_the_prompt () {
     printf "\n $txtred%s: $bldgrn%s $txtpur%s\n$txtrst" "$USER" "$PWD"  
 }
 
+source /etc/bash_completion.d/git-prompt
+
 PROMPT_COMMAND=print_before_the_prompt
 PS1='$(__git_ps1 "(%s)")->'  
 
