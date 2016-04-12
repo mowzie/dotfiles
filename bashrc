@@ -2,7 +2,7 @@
 # ~/.rhowaldt_bashrc
 # personal bashrc aliasses etc file
 # ----------------
-source ~/.git-prompt.sh
+source /etc/bash_completion.d/git-prompt
 
 # Make it shorter
 alias inst="sudo apt-get install -y"
@@ -19,13 +19,14 @@ alias ll="ls -AlhF --group-directories-first"
 alias la="ls -A --group-directories-first"
 alias lc="ls -CF --group-directories-first"
 alias lrn="cd /home/ianlittke/workspace/Learning"
-alias school="cd /home/ianlittke/workspace/School/2016winter/"
+alias school="cd ~/workspace/School/2016spring/"
 
 # search
 alias where="which"
 alias what="apropos"
 alias apr="apropos"
 alias ff="find . -type f -name"
+alias vim="vim"
 
 # navigation
 alias ..="cd .."
