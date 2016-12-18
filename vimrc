@@ -8,7 +8,9 @@ call vundle#begin()
   " alternatively, pass a path where Vundle should install plugins
   " let Vundle manage Vundle, required
   Plugin 'gmarik/Vundle.vim'
+  Plugin 'Valloric/YouCompleteMe'
   Plugin 'scrooloose/nerdtree'
+  Plugin 'vim-airline/vim-airline-themes'
   Plugin 'bling/vim-airline'
   Plugin 'altercation/vim-colors-solarized'
   Plugin 'sudar/vim-arduino-syntax'
@@ -19,6 +21,8 @@ call vundle#begin()
   " Keep Plugin commands between vundle#begin/end.
   " plugin on GitHub repo
   Plugin 'tpope/vim-fugitive'
+  Plugin 'airblade/vim-gitgutter'
+
   " All of your Plugins must be added before the following line
   call vundle#end()            " required
   filetype plugin indent on    " required
@@ -30,20 +34,23 @@ call vundle#begin()
   set nocompatible
 set cindent
 set ttyfast
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set nobackup
 set writebackup
 set incsearch
 set title
 set expandtab
 set cursorline
+set splitright
+set splitbelow
+set relativenumber
+set number
 
 let g:tex_flavor='latex'
 
 "set showcmd
-set number
 set ignorecase
 set smartcase
 set wildmenu
