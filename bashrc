@@ -1,7 +1,4 @@
 # ----------------
-# ~/.rhowaldt_bashrc
-# personal bashrc aliasses etc file
-# ----------------
 
 # Make it shorter
 alias inst="sudo apt-get install -y"
@@ -9,34 +6,26 @@ alias update="sudo apt-get update"
 alias upgrade="sudo apt-get upgrade"
 alias uninst="sudo apt-get purge"
 
-alias q="exit"
-alias c="clear"
-
 # some ls options, with directories first
 alias ls="ls --color --group-directories-first"
 alias ll="ls -AlhF --group-directories-first"
 alias la="ls -A --group-directories-first"
 alias lc="ls -CF --group-directories-first"
 alias lrn="cd /home/ianlittke/workspace/Learning"
-alias school="cd ~/workspace/School/2016fall/"
+alias school="cd ~/workspace/School/2017winter/"
 
 # search
 alias where="which"
 alias what="apropos"
 alias apr="apropos"
 alias ff="find . -type f -name"
-alias vim="vim"
+alias vi="vim"
 
 # navigation
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../../"
-alias ......="cd ../../../../.."
-alias scripts="cd ~/scripts"
-
-# what's with the typo?
-alias unmount="umount"
 
 # count the number of files in a folder
 alias numfiles="echo $(ls -1 | wc -l)"
@@ -87,7 +76,7 @@ function __setprompt
 		printf "${BLUE}0"
 		printf "${NOCOLOR} "
 	fi
-  printf "${MAGENTA}%s: ${CYAN}%s ${MAGENTA}%s\n${NOCOLOR}" "$USER" "$PWD"  
+  printf "${LIGHTMAGENTA}%s${MAGENTA}@%s: ${CYAN}%s ${MAGENTA}%s\n${NOCOLOR}" "$USER" "$(hostname)" "$PWD"  
 PS1='$(__git_ps1 "(%s)")->'  
 }
 
