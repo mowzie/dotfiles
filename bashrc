@@ -11,8 +11,6 @@ alias ls="ls --color --group-directories-first"
 alias ll="ls -AlhF --group-directories-first"
 alias la="ls -A --group-directories-first"
 alias lc="ls -CF --group-directories-first"
-alias lrn="cd /home/ianlittke/workspace/Learning"
-alias school="cd ~/workspace/School/2017winter/"
 
 # search
 alias where="which"
@@ -83,8 +81,3 @@ PS1='$(__git_ps1 "(%s)")->'
 source /etc/bash_completion.d/git-prompt
 
 PROMPT_COMMAND=__setprompt
-#alias 
-#CVSROOT=:ext:littkei@linux.cs.wwu.edu:/home/littkei/cs352f16/CVSrep/
-#CVS_RSH="ssh"
-#export CVSROOT CVS_RSH
-
